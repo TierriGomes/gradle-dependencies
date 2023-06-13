@@ -1,16 +1,19 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    // implemented
     id 'kotlin-kapt'
     id 'com.google.gms.google-services'
+    id 'com.google.dagger.hilt.android'
+
 }
 
 android {
-    namespace 'com.tierriapps.<PUT THE APP NAME HERE>'
+    namespace 'com.tierriapps.'APPNAME'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.tierriapps.<PUT THE APP NAME HERE>"
+        applicationId "com.tierriapps.'APPNAME"
         minSdk 19
         targetSdk 33
         versionCode 1
@@ -50,8 +53,8 @@ ext {
 }
 
 dependencies {
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.6.0'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.6.0'
     // it fix a abominable bug
     constraints {
         implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0") {
@@ -65,7 +68,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.9.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    
+
     // testing dependencies
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
@@ -99,4 +102,12 @@ dependencies {
     implementation 'com.google.firebase:firebase-firestore-ktx'
     implementation 'com.google.firebase:firebase-auth-ktx'
 
+    // dagger hilt dependencies
+    implementation 'com.google.dagger:hilt-android:2.44'
+    kapt "com.google.dagger:hilt-android-compiler:2.44"
 }
+// something for dagger '-'
+kapt {
+    correctErrorTypes = true
+}
+
